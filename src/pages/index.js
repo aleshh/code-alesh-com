@@ -64,16 +64,20 @@ const BlogIndex = ({ data, location }) => {
                   </h2>
                   <small>{post.frontmatter.date}</small>
                 </header>
-                <section
-                  dangerouslySetInnerHTML={{
-                    __html: content,
-                  }}
-                />
-                {showReadMore && (
-                  <Link to={post.fields.slug} itemProp="url">
-                    <p>Read More…</p>
-                  </Link>
-                )}
+                <section>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content,
+                    }}
+                  />
+                  {showReadMore && (
+                    <p className="read-more">
+                      <Link to={post.fields.slug} itemProp="url">
+                        Read More…
+                      </Link>
+                    </p>
+                  )}
+                </section>
               </article>
             </li>
           )
