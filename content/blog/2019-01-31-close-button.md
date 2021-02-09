@@ -16,7 +16,11 @@ function goBack() {
 
 <a class="close-button" ></a>
 
-I wanted to create a button with a "close" icon for my <a href="https://alesh.com">website</a> that would make the feeling of going back to the home page feel light and easy. The homepage is fairly long, so I also wanted it to return to the same scroll position it was in when the user clicked. Solution, `<a href="javascript:history.back()">Back</a>`. Problem is, what if someone got to the page by following a link from another site, or what if I want to email someone a link to a page? Then, we want the button to be a regular link to the homepage. Result above, activated by `<a class="close-button" href="#" onclick="goBack(); return false;" ></a>`. This CSS makes a nice fixed circle with a close 'X' icon in the top right corner: `<a href="blah />`
+I wanted to create a button with a "close" icon for my <a href="https://alesh.com">website</a> that would make the feeling of going back to the home page feel light and easy. The homepage is fairly long, so I also wanted it to return to the same scroll position it was in when the user clicked. Solution, `<a href="javascript:history.back()">Back</a>`. Problem is, what if someone got to the page by following a link from another site, or what if I want to email someone a link to a page?
+
+Then we want the button to be a regular link to the homepage. Result above, activated by `<a class="close-button" href="#" onclick="goBack(); return false;" ></a>`. This CSS makes a nice fixed circle with a close 'X' icon in the top right corner:
+
+<!--more-->
 
 ```css
 .close-button {

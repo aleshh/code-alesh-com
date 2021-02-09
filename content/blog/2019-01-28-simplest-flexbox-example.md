@@ -4,9 +4,11 @@ date: "2019-01-28"
 tags: ["CSS"]
 ---
 
-<pre><code>.container {
-	display: flex;
-	justify-content: space-around;
-}</code></pre>
+```css
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+```
 
-Nicely spaces whatever elements are inside it. Other useful values for <code>justify-content</code> are <code>center</code>, <code>space-between</code>, and <code>space-evenly</code>. Complete<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"> details on flexbox here</a>.
+Nicely spaces whatever elements are inside it. Other useful values for `justify-content` are `center`, `space-between`, and `space-evenly`. Complete <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">details on flexbox here</a>.
