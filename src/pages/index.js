@@ -31,6 +31,19 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
+          const [content, showReadMore] = (() => {
+            const { description } = post.frontmatter
+
+            if (description) {
+              return description
+            }
+            console.log(post)
+
+            const htmlContent = post.html.split("<!--more-->")
+
+            return [htmlContent[0], htmlContent.length > 1]
+          })()
+
           return (
             <li key={post.fields.slug}>
               <article
@@ -46,14 +59,17 @@ const BlogIndex = ({ data, location }) => {
                   </h2>
                   <small>{post.frontmatter.date}</small>
                 </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
+                <section
+                  dangerouslySetInnerHTML={{
+                    __html: content,
+                  }}
+                  itemProp="description"
+                />
+                {showReadMore && (
+                  <Link to={post.fields.slug} itemProp="url">
+                    <p className="read-more">Read More…</p>
+                  </Link>
+                )}
               </article>
             </li>
           )
@@ -74,6 +90,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
+        html
         excerpt
         fields {
           slug
